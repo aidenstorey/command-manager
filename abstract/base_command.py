@@ -29,7 +29,7 @@ class BaseCommandMeta(type):
         if 'commands' not in module_name:
             return
 
-        module_name = module_name.rsplit('.')[1]
+        module_name = module_name.split('.', 1)[1]
 
         registered_commands[module_name] = class_instance = class_object()
         command_parser = sub_parser.add_parser(module_name, help=class_object.help)
